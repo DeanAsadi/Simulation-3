@@ -14,5 +14,9 @@ massive(process.env.CONNECTION_STRING)
   })
   .catch(err => console.log(` Massive is NOT connected `));
 
+//End points-----------------------------
+app.post("/api/user/register", controller.addUser);
+app.post("/api/user/login", controller.loginUser);
+
 const port = 4000;
 app.listen(port, () => console.log(` Listening on port ${port} `));
