@@ -10,7 +10,10 @@ module.exports = {
     const { username, password } = req.body;
     const db = req.app.get("db");
     db.get_user([username, password])
-      .then(() => res.status(200).send(), console.log("Login successfull"))
+      .then(
+        user => res.status(200).send(user),
+        console.log("Login successfull")
+      )
       .catch(err => console.log("Login Error!", err));
   }
 };
